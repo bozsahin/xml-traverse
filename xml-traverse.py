@@ -11,9 +11,10 @@ def xml-recurse (rt):
     for elm in rt:
         if sys.argv[2] == "d":
             agenda.append(elm)
-        else if sys.argv[2] == "b":
+        elif sys.argv[2] == "b":
             agenda.insert(0,elm)
-        else agenda.append(elm)  # default is depth first
+        else:
+            agenda.append(elm)  # default is depth first
     for a in agenda:
         print("tag: %s  text: %s" % (a.attrib,a.text))
         xml-recurse(a)
