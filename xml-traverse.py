@@ -22,4 +22,5 @@ def xml-recurse (rt):
 # get the xml file's structured representation
 tree = ET.parse(sys.argv[1])
 root = tree.getroot()
+# fire away
 xml-recurse(root)
