@@ -16,9 +16,9 @@ def xml_recurse (rt,tmode):
             agenda.append(elm)
         else:
             agenda.insert(0,elm)
-    for a in reversed(agenda):  # ET seems to append everything: process in reverse
-        print("tag: %s\n  attrib:  %s\n  text: %s" % (a.tag,a.attrib,a.text))
+    for a in agenda if tmode == "d" else reversed(agenda):  
         xml_recurse(a,tmode)
+        print("tag: %s\n  attrib:  %s\n  text: %s" % (a.tag,a.attrib,a.text))
 
 
 # get the xml file's structured representation
