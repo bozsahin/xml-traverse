@@ -16,11 +16,8 @@ def do (el):
 def xml_recurse (rt,tmode):
     agenda=[]
     for elm in rt:
-        if tmode == "d":
-            agenda.append(elm)
-        else:
-            agenda.insert(0,elm)
-    for a in agenda if tmode == "d" else reversed(agenda):  
+        agenda.append(elm)
+    for a in agenda:
         if tmode == "b":
             do(a)
             xml_recurse(a,tmode)
