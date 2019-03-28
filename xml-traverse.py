@@ -17,8 +17,12 @@ def xml_recurse (rt,tmode):
         else:
             agenda.insert(0,elm)
     for a in agenda if tmode == "d" else reversed(agenda):  
-        xml_recurse(a,tmode)
-        print("tag: %s\n  attrib:  %s\n  text: %s" % (a.tag,a.attrib,a.text))
+        if tmode == "b":
+            print("tag: %s\n  attrib:  %s\n  text: %s" % (a.tag,a.attrib,a.text))
+            xml_recurse(a,tmode)
+        else:
+            xml_recurse(a,tmode)
+            print("tag: %s\n  attrib:  %s\n  text: %s" % (a.tag,a.attrib,a.text))
 
 
 # get the xml file's structured representation
