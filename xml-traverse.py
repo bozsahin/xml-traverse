@@ -9,6 +9,10 @@ import xml.etree.ElementTree as ET   # for xml processing
 tmode="d"
 if sys.argv[2] == "b":
     tmode="b"
+
+def do (el):
+    print("tag: %s\n  attrib:  %s\n  text: %s" % (el.tag,el.attrib,el.text))
+    
 def xml_recurse (rt,tmode):
     agenda=[]
     for elm in rt:
@@ -18,11 +22,11 @@ def xml_recurse (rt,tmode):
             agenda.insert(0,elm)
     for a in agenda if tmode == "d" else reversed(agenda):  
         if tmode == "b":
-            print("tag: %s\n  attrib:  %s\n  text: %s" % (a.tag,a.attrib,a.text))
+            do(a)
             xml_recurse(a,tmode)
         else:
             xml_recurse(a,tmode)
-            print("tag: %s\n  attrib:  %s\n  text: %s" % (a.tag,a.attrib,a.text))
+            do(a)
 
 
 # get the xml file's structured representation
